@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dheeraj & Virshita | The Wedding Takeover</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<style>
+:root{
+  --cream:#fff4df;
+  --cream-2:#fffaf0;
+  --espresso:#271510;
+  --muted:#73564d;
+  --pink:#ef3d81;
+  --yellow:#ffc841;
+  --blue:#2885e2;
+  --teal:#1db9ab;
+  --purple:#7e47d4;
+  --red:#db2d36;
+  --gold:#d69b2c;
+  --white:#ffffff;
+  --shadow:0 24px 70px rgba(39,21,16,.18);
+  --radius:28px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden;background:var(--cream)}
+body{margin:0;min-height:100%;font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;color:var(--espresso);background:
+  radial-gradient(circle at 10% 8%, rgba(255,200,65,.42), transparent 26rem),
+  radial-gradient(circle at 86% 20%, rgba(239,61,129,.22), transparent 24rem),
+  radial-gradient(circle at 55% 80%, rgba(40,133,226,.17), transparent 30rem),
+  linear-gradient(145deg,#fff7e8,#fffaf3 52%,#fff0d2);overflow-x:hidden}
+body.locked{overflow:hidden}
+body:not(.locked){overflow-y:auto}
+a{color:inherit;text-decoration:none}
+button,a.btn{font:inherit}
+button:focus-visible,a:focus-visible,.sequence-scroll:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.09;z-index:1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E")}
+.scroll-progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--blue),var(--teal));z-index:80;border-radius:0 99px 99px 0}
+.bg-orb{position:fixed;border-radius:999px;filter:blur(10px);opacity:.42;pointer-events:none;z-index:0;animation:orb 12s ease-in-out infinite alternate}
+.bg-orb.one{width:16rem;height:16rem;background:var(--pink);left:-7rem;top:22vh}
+.bg-orb.two{width:18rem;height:18rem;background:var(--yellow);right:-8rem;top:54vh;animation-delay:-4s}
+.bg-orb.three{width:13rem;height:13rem;background:var(--teal);left:55vw;top:5vh;animation-delay:-8s}
+@keyframes orb{from{transform:translate3d(0,0,0) scale(.92)}to{transform:translate3d(1.5rem,-2rem,0) scale(1.08)}}
+
+/* Opening gate */
+.gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:calc(env(safe-area-inset-top) + 20px) 20px calc(env(safe-area-inset-bottom) + 20px);background:
+  radial-gradient(circle at 18% 12%, rgba(255,200,65,.5), transparent 18rem),
+  radial-gradient(circle at 90% 20%, rgba(239,61,129,.34), transparent 20rem),
+  radial-gradient(circle at 50% 105%, rgba(40,133,226,.25), transparent 22rem),
+  #fff6e8;transition:opacity .5s ease,visibility .5s ease;overflow:hidden}
+.gate.hidden{opacity:0;visibility:hidden;pointer-events:none;display:none}.gate.unlocking{opacity:0;transform:scale(1.018);transition:opacity .22s ease,transform .22s ease;pointer-events:none}
+.gate-card{position:relative;width:min(96vw,680px);min-height:min(720px,90vh);padding:clamp(28px,6vw,56px);border-radius:38px;background:rgba(255,255,255,.72);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(18px);display:grid;align-content:center;text-align:center;overflow:hidden}
+.gate-card:before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 120deg,transparent,var(--yellow),transparent,var(--pink),transparent,var(--teal),transparent);animation:spin 18s linear infinite;opacity:.24}
+.gate-card>*{position:relative}
+@keyframes spin{to{transform:rotate(360deg)}}
+.kicker{display:inline-flex;align-items:center;gap:.45rem;align-self:center;justify-self:center;padding:.46rem .8rem;border-radius:999px;background:rgba(39,21,16,.08);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.gate h1{margin:22px 0 12px;font-size:clamp(2.4rem,8vw,5.5rem);line-height:.88;letter-spacing:-.06em;text-transform:uppercase}
+.gate p{margin:0 auto;color:var(--muted);font-size:clamp(1rem,2.5vw,1.3rem);line-height:1.5;max-width:42rem}
+.gate-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px;min-height:clamp(86px, calc(86px * var(--yes-scale, 1)), 250px);align-items:center;transition:min-height .12s ease}
+.gate-btn{border:0;border-radius:999px;cursor:pointer;padding:1rem 1.65rem;font-weight:950;letter-spacing:.03em;box-shadow:0 18px 38px rgba(39,21,16,.14);transition:transform .16s ease,background .2s ease,box-shadow .2s ease;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.yes-btn{background:linear-gradient(135deg,var(--espresso),#513126);color:white;min-width:120px;transform:scale(var(--yes-scale,1));transform-origin:center center}
+.no-btn{background:white;color:var(--espresso);border:2px solid rgba(39,21,16,.16);position:relative;transform:translate(var(--no-x,0),var(--no-y,0)) rotate(var(--no-r,0deg)) scale(var(--no-s,1));touch-action:none}
+.gate-note{min-height:58px;margin-top:18px;font-weight:800;color:var(--pink)}
+.pop-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.confetti-piece{position:absolute;width:10px;height:16px;border-radius:3px;animation:confetti 900ms cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes confetti{from{transform:translate(0,0) rotate(0);opacity:1}to{transform:translate(var(--dx),var(--dy)) rotate(540deg);opacity:0}}
+
+main{position:relative;z-index:2}
+.section{width:min(1180px,calc(100vw - 32px));margin:0 auto;padding:clamp(54px,8vw,104px) 0}
+.hero{min-height:100svh;display:grid;place-items:center;padding:calc(env(safe-area-inset-top) + 56px) 16px calc(env(safe-area-inset-bottom) + 40px);position:relative;overflow:hidden}
+.hero-inner{width:min(1050px,100%);display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(24px,6vw,70px);align-items:center}
+.hero-copy{text-align:left}
+.hero h2{margin:18px 0 18px;font-size:clamp(3.1rem,10vw,8rem);line-height:.86;letter-spacing:-.08em;text-transform:uppercase}
+.hero h2 span{display:block;color:var(--pink);text-shadow:3px 3px 0 rgba(255,200,65,.75)}
+.hero-lede{font-size:clamp(1.08rem,2vw,1.45rem);line-height:1.5;max-width:42rem;color:var(--muted);margin:0 0 28px}
+.hero-card{border-radius:38px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.85);box-shadow:var(--shadow);padding:clamp(20px,4vw,34px);position:relative;overflow:hidden;min-height:440px;display:grid;align-content:center;text-align:center}
+.hero-card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 40% 18%,rgba(255,200,65,.7),transparent 22%),radial-gradient(circle at 80% 90%,rgba(29,185,171,.45),transparent 28%);z-index:-1}
+.dv-mark{font-size:clamp(5rem,16vw,9.5rem);line-height:.8;font-weight:1000;letter-spacing:-.12em;color:var(--espresso)}
+.movie-tag{display:inline-grid;place-items:center;margin:22px auto 0;padding:.75rem 1rem;border-radius:999px;background:var(--espresso);color:white;font-size:.8rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-1deg)}}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:0;border-radius:999px;padding:.95rem 1.2rem;font-weight:950;cursor:pointer;box-shadow:0 14px 32px rgba(39,21,16,.12);transition:transform .18s ease,box-shadow .18s ease;min-height:48px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(39,21,16,.18)}
+.btn.primary{background:var(--espresso);color:white}.btn.pink{background:var(--pink);color:white}.btn.light{background:white;color:var(--espresso);border:1px solid rgba(39,21,16,.12)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+.title-row{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;margin-bottom:24px}.title-row.center{display:block;text-align:center}.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;font-weight:950;color:var(--pink);margin:0 0 10px}.section h3{font-size:clamp(2.1rem,5vw,4.5rem);line-height:.92;letter-spacing:-.06em;margin:0;text-transform:uppercase}.subcopy{max-width:660px;font-size:clamp(1rem,1.8vw,1.2rem);line-height:1.62;color:var(--muted);margin:14px auto 0}.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.mission-card,.event-card,.venue-card,.rsvp-panel,.countdown-card{position:relative;border-radius:var(--radius);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.86);box-shadow:var(--shadow);overflow:hidden}.mission-card{padding:24px;min-height:190px}.mission-card .emoji{font-size:2.4rem;display:block;margin-bottom:16px}.mission-card h4,.event-card h4{margin:0 0 8px;font-size:1.28rem}.mission-card p,.event-card p,.venue-card p,.rsvp-panel p{margin:0;color:var(--muted);line-height:1.52}.mission-card:nth-child(1){background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(255,219,230,.72))}.mission-card:nth-child(2){background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(220,255,246,.72))}.mission-card:nth-child(3){background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(235,227,255,.75))}
+
+/* Internal scroll sequence */
+.sequence-wrap{position:relative;border-radius:38px;padding:clamp(12px,2.5vw,22px);background:rgba(39,21,16,.08);box-shadow:var(--shadow);overflow:hidden}.sequence-shell{position:relative;height:min(76vh,760px);min-height:520px;border-radius:30px;overflow:hidden;background:#190f0d;isolation:isolate;contain:layout paint}.sequence-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1;will-change:contents;transform:translateZ(0)}.sequence-shine{position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.15),transparent 38%,rgba(255,255,255,.18) 62%,transparent);z-index:2;pointer-events:none;mix-blend-mode:screen;animation:shine 5s ease-in-out infinite}@keyframes shine{0%,100%{transform:translateX(-30%)}50%{transform:translateX(30%)}}
+.sequence-scroll{position:absolute;inset:0;z-index:5;overflow-y:auto;overscroll-behavior-y:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;contain:strict}.sequence-scroll::-webkit-scrollbar{display:none}.sequence-spacer{height:4300px}.sequence-ui{position:absolute;left:18px;right:18px;bottom:18px;z-index:6;display:flex;align-items:center;justify-content:space-between;gap:12px;pointer-events:none}.sequence-pill{border-radius:999px;background:rgba(255,255,255,.84);color:var(--espresso);padding:.68rem .9rem;font-weight:950;font-size:.82rem;box-shadow:0 10px 24px rgba(0,0,0,.18);backdrop-filter:blur(12px)}.sequence-bar{height:8px;flex:1;background:rgba(255,255,255,.44);border-radius:999px;overflow:hidden}.sequence-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--teal));border-radius:999px}.sequence-hint{position:absolute;top:16px;left:16px;z-index:6;background:rgba(39,21,16,.82);color:white;border-radius:999px;padding:.58rem .82rem;font-size:.76rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}.sequence-caption{position:absolute;left:18px;right:18px;bottom:76px;z-index:6;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(255,248,224,.86));color:var(--espresso);border:1px solid rgba(255,255,255,.7);border-radius:22px;padding:14px 16px;box-shadow:0 18px 45px rgba(0,0,0,.18);backdrop-filter:blur(14px)}.sequence-caption strong{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--pink);margin-bottom:4px}.sequence-caption span{display:block;font-size:clamp(.86rem,1.8vw,1.02rem);line-height:1.35;font-weight:800}
+
+.events{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.event-card{padding:22px}.episode{display:inline-flex;align-items:center;gap:.45rem;margin-bottom:18px;border-radius:999px;background:rgba(39,21,16,.08);padding:.55rem .75rem;font-size:.78rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.event-date{font-weight:950;color:var(--pink);margin-bottom:6px}.event-time{font-size:2rem;line-height:1;font-weight:1000;letter-spacing:-.04em;margin-bottom:12px}.event-card:nth-child(1){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,240,194,.74))}.event-card:nth-child(2){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(214,247,255,.74))}.event-card:nth-child(3){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,220,235,.74))}
+.countdown-card{padding:clamp(22px,4vw,36px);display:grid;grid-template-columns:1.05fr 1fr;gap:20px;align-items:center}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.timebox{border-radius:22px;background:var(--espresso);color:white;padding:18px 10px;text-align:center;box-shadow:0 16px 32px rgba(39,21,16,.16)}.timebox strong{display:block;font-size:clamp(1.8rem,5vw,3.1rem);letter-spacing:-.06em;line-height:.95}.timebox span{display:block;margin-top:7px;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:#f5d788}.venue-card{padding:clamp(22px,4vw,36px);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.map-blob{width:180px;aspect-ratio:1;border-radius:36px;background:radial-gradient(circle at 35% 30%,var(--yellow),transparent 34%),radial-gradient(circle at 68% 75%,var(--teal),transparent 38%),linear-gradient(135deg,#fff,#ffe7f1);display:grid;place-items:center;font-size:4.2rem;box-shadow:inset 0 0 0 1px rgba(39,21,16,.08)}.rsvp-panel{padding:clamp(24px,5vw,44px);text-align:center;background:linear-gradient(145deg,rgba(255,255,255,.8),rgba(255,235,245,.74))}.rsvp-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:26px 0}.rsvp-option{border-radius:22px;background:white;border:1px solid rgba(39,21,16,.1);padding:16px;font-weight:950;box-shadow:0 10px 24px rgba(39,21,16,.08)}.credits{text-align:center;padding-bottom:calc(env(safe-area-inset-bottom) + 70px)}.credits h3{font-size:clamp(2.7rem,8vw,6.5rem)}.floating-sticker{display:inline-flex;align-items:center;gap:.45rem;padding:.7rem .9rem;border-radius:999px;background:var(--yellow);font-weight:950;margin:20px 8px 0;animation:bob 4s ease-in-out infinite}.floating-sticker:nth-child(2){background:var(--teal);animation-delay:-1s}.floating-sticker:nth-child(3){background:var(--pink);color:white;animation-delay:-2s}
+
+/* Mobile polish and fun invite refinements */
+.gate{width:100svw;min-height:100svh;justify-items:center;align-items:center}
+.gate-card{max-width:100%;margin-inline:auto;transform:translateZ(0)}
+.gate-card.dodged{animation:gatePulse .18s ease-out}
+@keyframes gatePulse{50%{transform:translateZ(0) scale(1.012)}}
+.rata-callout{margin-top:14px;padding:18px;border-radius:22px;background:rgba(255,255,255,.65);border:1px solid rgba(39,21,16,.1);box-shadow:0 14px 28px rgba(39,21,16,.08)}
+.rata-callout span{display:inline-flex;margin-bottom:9px;border-radius:999px;background:var(--espresso);color:#fff;padding:.42rem .68rem;font-size:.7rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}
+.credits div{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.floating-sticker{animation:stickerFloat 2.8s ease-in-out infinite;will-change:transform}
+.floating-sticker:nth-child(2){animation-delay:-.75s}.floating-sticker:nth-child(3){animation-delay:-1.45s}
+@keyframes stickerFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(2deg) scale(1.035)}}
+
+@media (max-width:900px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-copy{text-align:center}.cta-row{justify-content:center}.title-row{display:block;text-align:center}.mission-grid,.events{grid-template-columns:1fr}.countdown-card,.venue-card{grid-template-columns:1fr;text-align:center}.map-blob{margin:auto}.section{width:min(100vw - 26px,720px);padding:60px 0}.sequence-shell{min-height:560px;height:74vh}.rsvp-options{grid-template-columns:1fr}.hero h2{font-size:clamp(3rem,14vw,6rem)}.hero-card{min-height:340px}.event-time{font-size:1.75rem}.gate-card{min-height:70vh}}
+@media (max-width:460px){.section{width:calc(100vw - 22px)}.hero{padding-left:11px;padding-right:11px}.hero h2{font-size:3.3rem}.hero-lede{font-size:1rem}.btn{width:100%}.cta-row{width:100%}.countdown{grid-template-columns:repeat(2,1fr)}.sequence-shell{height:68vh;min-height:500px;border-radius:24px}.sequence-ui{flex-wrap:wrap;left:12px;right:12px;bottom:12px}.sequence-caption{left:12px;right:12px;bottom:90px;padding:12px 13px;border-radius:18px}.sequence-pill{font-size:.7rem;padding:.58rem .72rem}.sequence-hint{font-size:.72rem}.gate h1{font-size:3rem}.gate-actions{gap:10px;min-height:clamp(118px, calc(88px * var(--yes-scale, 1) + 34px), 278px)}.gate-btn{padding:.9rem 1.2rem}.yes-btn{min-width:136px}.dv-mark{font-size:5.5rem}.mission-card,.event-card{padding:20px}.rata-card:after{position:static;display:inline-flex;margin:12px 0 0;transform:none}.rata-callout{padding:16px}}
+
+@media (max-width:460px){
+  .gate{padding:calc(env(safe-area-inset-top) + 14px) 14px calc(env(safe-area-inset-bottom) + 14px)}
+  .gate-card{width:calc(100svw - 28px);min-height:auto;max-height:calc(100svh - 28px);padding:24px 18px;border-radius:28px;align-content:center;justify-self:center;align-self:center}
+  .gate h1{font-size:clamp(2.55rem,13vw,3.15rem);letter-spacing:-.07em;margin:18px 0 10px}
+  .gate p{font-size:.98rem;line-height:1.45}
+  .gate-note{min-height:50px;font-size:.95rem;line-height:1.3;display:grid;place-items:center;padding:0 8px}
+  .gate-actions{gap:9px;min-height:clamp(112px, calc(86px * var(--yes-scale, 1) + 34px), 278px);justify-content:center;width:100%;overflow:visible}
+  .gate-btn{padding:.86rem 1.05rem;transition:transform .08s linear,background .12s ease,box-shadow .12s ease}
+  .yes-btn{min-width:126px;transform:scale(clamp(1,var(--yes-scale,1),2.25))}
+  .no-btn{z-index:2}
+  .floating-sticker{animation-duration:2.1s;margin:8px 4px 0}
+}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}.sequence-shine{display:none}}
+</style>
+</head>
+<body class="locked">
+<!-- GitHub Pages build: v6-scroll-unlock-and-gate-spacing-fix -->
+<div class="scroll-progress" id="progress"></div><div class="noise"></div><div class="bg-orb one"></div><div class="bg-orb two"></div><div class="bg-orb three"></div>
+
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-card">
+    <div class="pop-confetti" id="gateConfetti"></div>
+    <div class="kicker">Inner circle entry check</div>
+    <h1 id="gate-title">Are you attending?</h1>
+    <p>Before this invite reveals itself, please answer this extremely official, totally unbiased question.</p>
+    <div class="gate-actions">
+      <button class="gate-btn yes-btn" id="yesBtn" type="button" style="--yes-scale:1">YES</button>
+      <button class="gate-btn no-btn" id="noBtn" type="button">No</button>
+    </div>
+    <div class="gate-note" id="gateNote">Choose carefully. The group chat is watching respectfully.</div>
+  </div>
+
+</div>
+<script>
+(function(){
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const gate = document.getElementById('gate');
+  const gateCard = gate.querySelector('.gate-card');
+  const yesBtn = document.getElementById('yesBtn');
+  const gateActions = gate.querySelector('.gate-actions');
+  const noBtn = document.getElementById('noBtn');
+  const note = document.getElementById('gateNote');
+  const confetti = document.getElementById('gateConfetti');
+  let noCount = 0;
+  let lastDodge = 0;
+  let unlocked = false;
+  const notes = [
+    'Interesting choice.',
+    'Bold move. The invite did not expect rebellion.',
+    'That button just took a personal day.',
+    'We checked the vibe. It says YES.',
+    'Your outfit is already being imagined.',
+    'The dance group needs a mysterious late entry.',
+    'Food counter has been informed about you.',
+    'Even Google Maps is preparing your route.',
+    'The No button is losing confidence.',
+    'Quick reminder: attendance looks good on you.',
+    'Last chance before the YES button starts flexing.',
+    'Surrender gracefully and tap YES.'
+  ];
+  const noLabels = ['No','Are you sure?','Tiny no','Nope?','Try again','Still no?','Risky choice','No-ish','Unavailable','Denied','Final no?','Surrender'];
+  function wiggleCard(){
+    gateCard.classList.remove('dodged');
+    void gateCard.offsetWidth;
+    gateCard.classList.add('dodged');
+  }
+  function moveNo(){
+    if (unlocked) return;
+    noCount++;
+    const isMobile = window.matchMedia('(max-width: 760px)').matches;
+    const scale = Math.min(isMobile ? 2.25 : 3.15, 1 + noCount * (isMobile ? 0.24 : 0.32));
+    yesBtn.style.setProperty('--yes-scale', scale);
+    gateActions.style.setProperty('--yes-scale', scale);
+    const rect = gateCard.getBoundingClientRect();
+    const btnRect = noBtn.getBoundingClientRect();
+    const maxX = Math.max(38, (rect.width - btnRect.width) / 2 - (isMobile ? 18 : 28));
+    const maxY = Math.max(32, (rect.height - btnRect.height) / 2 - (isMobile ? 58 : 90));
+    const direction = noCount % 2 ? 1 : -1;
+    const x = Math.round(direction * (maxX * (.55 + Math.random() * .38))) + 'px';
+    const y = Math.round((Math.random() * maxY - maxY / 2)) + 'px';
+    const r = Math.round(Math.random() * 38 - 19) + 'deg';
+    noBtn.style.setProperty('--no-x', x);
+    noBtn.style.setProperty('--no-y', y);
+    noBtn.style.setProperty('--no-r', r);
+    noBtn.style.setProperty('--no-s', Math.max(.46, 1 - noCount * .055));
+    noBtn.textContent = noLabels[Math.min(noCount, noLabels.length - 1)];
+    note.textContent = notes[Math.min(noCount - 1, notes.length - 1)];
+    wiggleCard();
+  }
+  function dodgeIfNear(clientX, clientY){
+    const now = performance.now();
+    if (now - lastDodge < 70) return;
+    const rect = noBtn.getBoundingClientRect();
+    const padding = window.matchMedia('(max-width: 760px)').matches ? 120 : 54;
+    const near = clientX >= rect.left - padding && clientX <= rect.right + padding && clientY >= rect.top - padding && clientY <= rect.bottom + padding;
+    if (near) {
+      lastDodge = now;
+      moveNo();
+    }
+  }
+  noBtn.addEventListener('click', (event) => { event.preventDefault(); moveNo(); }, {passive:false});
+  noBtn.addEventListener('pointerenter', () => { moveNo(); });
+  noBtn.addEventListener('pointerdown', (event) => { event.preventDefault(); moveNo(); }, {passive:false});
+  noBtn.addEventListener('touchstart', (event) => { event.preventDefault(); moveNo(); }, {passive:false});
+  gate.addEventListener('pointermove', (event) => {
+    if (event.pointerType === 'touch' || event.pointerType === 'pen') dodgeIfNear(event.clientX, event.clientY);
+  }, {passive:true});
+  gate.addEventListener('touchmove', (event) => {
+    const touch = event.touches && event.touches[0];
+    if (touch) dodgeIfNear(touch.clientX, touch.clientY);
+  }, {passive:true});
+
+  // Desktop safety: if the gate is already hidden, make sure the document cannot remain scroll-locked.
+  window.addEventListener('pageshow', () => {
+    if (gate.classList.contains('hidden')) {
+      document.body.classList.remove('locked');
+      document.documentElement.style.overflowY = 'auto';
+      document.body.style.overflowY = 'auto';
+    }
+  });
+
+  yesBtn.addEventListener('click', () => {
+    if (unlocked) return;
+    unlocked = true;
+    note.textContent = 'Correct answer. Welcome to the madness.';
+    yesBtn.disabled = true;
+    noBtn.disabled = true;
+    const content = document.getElementById('content');
+    document.body.classList.remove('locked');
+    document.documentElement.style.overflowY = 'auto';
+    document.body.style.overflowY = 'auto';
+    if (content) content.removeAttribute('aria-hidden');
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    burstConfetti();
+    gate.classList.add('unlocking');
+    gate.style.pointerEvents = 'none';
+    setTimeout(() => {
+      gate.classList.add('hidden');
+      document.body.classList.remove('locked');
+      document.documentElement.style.overflowY = 'auto';
+      document.body.style.overflowY = 'auto';
+    }, 0);
+  });
+  function burstConfetti(){
+    const colors=['#ef3d81','#ffc841','#2885e2','#1db9ab','#7e47d4','#db2d36'];
+    const count = window.matchMedia('(max-width: 560px)').matches ? 34 : 80;
+    for(let i=0;i<count;i++){
+      const piece=document.createElement('span');
+      piece.className='confetti-piece';
+      piece.style.left='50%'; piece.style.top='50%';
+      piece.style.background=colors[i%colors.length];
+      piece.style.setProperty('--dx', (Math.random()*560-280)+'px');
+      piece.style.setProperty('--dy', (Math.random()*-520+80)+'px');
+      confetti.appendChild(piece);
+      setTimeout(()=>piece.remove(),1000);
+    }
+  }
+})();
+</script>
+
+
+<main id="content" aria-hidden="true">
+  <section class="hero section">
+    <div class="hero-inner">
+      <div class="hero-copy reveal">
+        <div class="kicker">August 2026: the takeover begins</div>
+        <h2>Dheeraj <span>x Virshita</span></h2>
+        <p class="hero-lede">This August, two people get married, outfits get judged, friends overcommit to dancing, and cousins mysteriously become event managers.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#episodes">View the episodes</a>
+          <a class="btn pink" href="#rsvp">Lock attendance</a>
+        </div>
+      </div>
+      <div class="hero-card reveal" aria-label="Dheeraj and Virshita wedding takeover title card">
+        <div class="kicker">A personal invite for the inner circle</div>
+        <div class="dv-mark">D×V</div>
+        <div class="movie-tag">The Wedding Takeover</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="title-row center">
+      <p class="eyebrow">The trailer</p>
+      <h3>Scroll the chaos</h3>
+      <p class="subcopy">This reel now follows the custom 10-frame meet-cute storyline. Scroll inside the movie reel and the frame changes in order from 1 to 10.</p>
+    </div>
+    <div class="sequence-wrap">
+      <div class="sequence-shell" id="sequenceShell">
+        <img class="sequence-img" id="sequenceImg" alt="Animated rom-com wedding trailer frame">
+        <div class="sequence-shine"></div>
+        <div class="sequence-hint">Scroll inside this reel</div>
+        <div class="sequence-caption"><strong id="frameCaptionTitle">Scene 1 of 10</strong><span id="frameCaption">A grand Indian cousins’ wedding begins with lights, flowers, music, chaos, and one auntie hunting for the groom’s shoe.</span></div>
+        <div class="sequence-ui" aria-hidden="true">
+          <div class="sequence-pill" id="frameLabel">Frame 1 / 10</div>
+          <div class="sequence-bar"><span id="sequenceBar"></span></div>
+          <div class="sequence-pill">Story reel</div>
+        </div>
+        <div class="sequence-scroll" id="sequenceScroll" tabindex="0" role="region" aria-label="Scroll-driven wedding trailer sequence">
+          <div class="sequence-spacer" id="sequenceSpacer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="title-row">
+      <div>
+        <p class="eyebrow">Your assignment</p>
+        <h3>Report to wedding duty</h3>
+      </div>
+      <p class="subcopy">You have been selected for a highly sensitive operation involving dancing, dressing up, food, photos, and pretending you are not tired.</p>
+    </div>
+    <div class="mission-grid">
+      <article class="mission-card"><span class="emoji">🕺</span><h4>Dress code</h4><p>Come dangerously well dressed. Outfit repetition will be noticed by at least three people and one camera.</p></article>
+      <article class="mission-card"><span class="emoji">🔋</span><h4>Energy level</h4><p>Full battery only. No 12 percent behaviour during photos, dancing, or food rounds.</p></article>
+      <article class="mission-card"><span class="emoji">📣</span><h4>Excuse policy</h4><p>All excuses will be forwarded to aunties for review, escalation, and emotional follow-up.</p></article>
+    </div>
+  </section>
+
+  <section class="section reveal" id="episodes">
+    <div class="title-row center">
+      <p class="eyebrow">Episodes you cannot skip</p>
+      <h3>The event lineup</h3>
+      <p class="subcopy">Precise muhurtham times are not typos. This is a Telugu wedding. We do timing like cinema releases.</p>
+    </div>
+    <div class="events">
+      <article class="event-card">
+        <div class="episode">Episode 01</div>
+        <div class="event-date">Sunday, 23 August 2026</div>
+        <div class="event-time">10:15 AM</div>
+        <h4>Pellikoduku</h4>
+        <p>Groom-side chaos officially begins. Bless, laugh, take photos, and act like you know exactly what is happening.</p>
+      </article>
+      <article class="event-card rata-card">
+        <div class="episode">Episode 02</div>
+        <div class="event-date">Sunday, 23 August 2026</div>
+        <div class="event-time">11:21 AM</div>
+        <h4>Rata Ceremony</h4>
+        <div class="rata-callout" aria-label="Rata ceremony note">
+          <p>[Rata ceremony description to be added. For now, just show up, smile confidently, and act like you absolutely know what is happening.]</p>
+        </div>
+      </article>
+      <article class="event-card">
+        <div class="episode">Episode 03</div>
+        <div class="event-date">Wednesday, 26 August 2026</div>
+        <div class="event-time">10:16 PM</div>
+        <h4>Wedding Ceremony</h4>
+        <p>The main event. The sacred muhurtham. The reason your outfit planning must start now.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="countdown-card">
+      <div>
+        <p class="eyebrow">Countdown to chaos</p>
+        <h3>Time left to prepare</h3>
+        <p class="subcopy" style="margin-left:0">Finalise outfits, book tickets, practise dance steps, and emotionally prepare.</p>
+      </div>
+      <div class="countdown" aria-label="Countdown to the wedding muhurtham">
+        <div class="timebox"><strong id="days">0</strong><span>Days</span></div>
+        <div class="timebox"><strong id="hours">00</strong><span>Hours</span></div>
+        <div class="timebox"><strong id="minutes">00</strong><span>Minutes</span></div>
+        <div class="timebox"><strong id="seconds">00</strong><span>Seconds</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="venue-card">
+      <div>
+        <p class="eyebrow">Where the plot happens</p>
+        <h3>Sai Priya Resorts</h3>
+        <p>Bheemili Beach Road, Rushikonda, Visakhapatnam, Andhra Pradesh 530045</p>
+        <p style="margin-top:12px">Come to the right venue. This is not the day to trust memory, vibes, or one overconfident cousin.</p>
+        <div class="cta-row" style="margin-top:22px">
+          <a class="btn primary" id="directionsLink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sai+Priya+Resorts+Bheemili+Beach+Road%2C+Rushikonda%2C+Visakhapatnam%2C+Andhra+Pradesh+530045">Open directions</a>
+          <a class="btn light" id="calendarLink" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dheeraj%20and%20Virshita%20Wedding%20Ceremony&dates=20260826T221600/20260826T233600&ctz=Asia/Kolkata&location=Sai+Priya+Resorts%2C+Bheemili+Beach+Road%2C+Rushikonda%2C+Visakhapatnam%2C+Andhra+Pradesh+530045&details=Wedding%20muhurtham%20at%2010%3A16%20PM.">Add to calendar</a>
+        </div>
+      </div>
+      <div class="map-blob" aria-hidden="true">📍</div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="rsvp">
+    <div class="rsvp-panel">
+      <p class="eyebrow">Final question</p>
+      <h3>Are you coming?</h3>
+      <p class="subcopy">There is no wrong answer here, because all answers below are yes.</p>
+      <div class="rsvp-options">
+        <div class="rsvp-option">Obviously yes</div>
+        <div class="rsvp-option">Yes, and I will dance</div>
+        <div class="rsvp-option">Yes, but I need outfit approval</div>
+        <div class="rsvp-option">Yes, but I may cry</div>
+      </div>
+      <a class="btn pink" href="[RSVP_LINK_PLACEHOLDER]">Lock my attendance</a>
+      <p style="margin-top:18px;font-size:.92rem">Once submitted, your attendance may be used in family conversations, seating plans, dance groups, and emotional blackmail.</p>
+    </div>
+  </section>
+
+  <section class="section credits reveal">
+    <h3>See you at the wedding</h3>
+    <p class="subcopy">Bring your best outfit, your loudest laugh, your cleanest camera lens, and your full wedding energy.</p>
+    <div><span class="floating-sticker">Cousin certified</span><span class="floating-sticker">Friends approved</span><span class="floating-sticker">No excuses</span></div>
+  </section>
+</main>
+<script>
+const FRAME_BASE_URL = new URL('./', window.location.href);
+const FRAME_IMAGES = Array.from({ length: 10 }, (_, i) => new URL(`frames/frame-${String(i + 1).padStart(2, '0')}.jpg`, FRAME_BASE_URL).href);
+const sequenceConfig = {
+  imageArray: FRAME_IMAGES.slice(0, 10),
+  frameHeight: 2600
+};
+
+(function(){
+  const img = document.getElementById('sequenceImg');
+  const scroller = document.getElementById('sequenceScroll');
+  const spacer = document.getElementById('sequenceSpacer');
+  const bar = document.getElementById('sequenceBar');
+  const label = document.getElementById('frameLabel');
+  const captionTitle = document.getElementById('frameCaptionTitle');
+  const caption = document.getElementById('frameCaption');
+  let frames = sequenceConfig.imageArray.slice(0,10);
+  let frameHeight = sequenceConfig.frameHeight;
+  let current = -1;
+  let raf = 0;
+  const frameStories = [
+    'A grand Indian cousins’ wedding begins with lights, flowers, music, chaos, and one auntie hunting for the groom’s shoe.',
+    'The boy enters confidently in wedding clothes, pretending he knows exactly where to go.',
+    'He immediately walks into the wrong side and joins the bride’s family photo by mistake.',
+    'Everyone smiles for the photo. He smiles too, confused but fully committed.',
+    'The girl notices him from across the hall and wonders who this random man is.',
+    'He realises he is in the wrong photo and slowly tries to escape without moving his smile.',
+    'The photographer asks for one more shot. The boy is officially trapped.',
+    'The girl laughs so hard she nearly drops her phone.',
+    'Later at the food counter, the boy reaches for a gulab jamun.',
+    'The girl reaches for the same gulab jamun at the exact same time.'
+  ];
+  const cache = new Map();
+  img.decoding = 'async';
+  img.loading = 'eager';
+  function loadFrame(index){
+    if(index < 0 || index >= frames.length || !frames[index] || cache.has(index)) return;
+    const im = new Image();
+    im.decoding = 'async';
+    im.src = frames[index];
+    cache.set(index, im);
+  }
+  function warmAround(index){
+    for(let i=index-2;i<=index+3;i++) loadFrame(i);
+  }
+  function effectiveFrameHeight(){
+    const base = Math.max(600, Number(frameHeight) || 4300);
+    if (window.innerWidth < 640) return Math.min(base, 2600);
+    if (window.innerWidth < 1024) return Math.min(base, 2400);
+    return Math.min(base, 1650);
+  }
+  function applyConfig(){
+    frames = sequenceConfig.imageArray.slice(0,10).filter(Boolean);
+    frameHeight = Math.max(600, Number(sequenceConfig.frameHeight) || 4300);
+    cache.clear();
+    spacer.style.height = effectiveFrameHeight() + 'px';
+    current = -1;
+    updateFrame();
+    warmAround(0);
+  }
+  function updateFrame(){
+    raf = 0;
+    const max = Math.max(1, scroller.scrollHeight - scroller.clientHeight);
+    const progress = Math.max(0, Math.min(1, scroller.scrollTop / max));
+    const idx = Math.min(frames.length-1, Math.max(0, Math.floor(progress * frames.length)));
+    if(idx !== current && frames[idx]){
+      current = idx;
+      loadFrame(idx);
+      img.src = (cache.get(idx) && cache.get(idx).src) || frames[idx];
+      label.textContent = 'Frame ' + String(idx+1) + ' / ' + frames.length;
+      if(captionTitle) captionTitle.textContent = 'Scene ' + String(idx+1) + ' of ' + frames.length;
+      if(caption) caption.textContent = frameStories[idx] || '';
+      warmAround(idx);
+    }
+    bar.style.width = (progress * 100).toFixed(1) + '%';
+  }
+  function scheduleUpdate(){
+    if(!raf) raf = requestAnimationFrame(updateFrame);
+  }
+  scroller.addEventListener('scroll', scheduleUpdate, {passive:true});
+  scroller.addEventListener('wheel', (event) => {
+    if (window.innerWidth < 900) return;
+    event.preventDefault();
+    const max = Math.max(1, scroller.scrollHeight - scroller.clientHeight);
+    const before = scroller.scrollTop;
+    const speed = 2.85;
+    scroller.scrollTop = Math.max(0, Math.min(max, before + event.deltaY * speed));
+    scheduleUpdate();
+    const atTop = scroller.scrollTop <= 2;
+    const atBottom = scroller.scrollTop >= max - 2;
+    if ((event.deltaY < 0 && atTop) || (event.deltaY > 0 && atBottom)) {
+      window.scrollBy({ top: event.deltaY, left: 0, behavior: 'auto' });
+    }
+  }, {passive:false});
+  window.addEventListener('resize', () => { spacer.style.height = effectiveFrameHeight() + 'px'; scheduleUpdate(); }, {passive:true});
+  window.updateWeddingSequenceConfig = function(next){
+    if(next && Array.isArray(next.imageArray)) sequenceConfig.imageArray = next.imageArray.slice(0,10);
+    if(next && next.frameHeight) sequenceConfig.frameHeight = next.frameHeight;
+    applyConfig();
+  };
+  applyConfig();
+})();
+
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(el=>el.classList.add('in'));return;}
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in'); io.unobserve(entry.target);}});
+  },{threshold:.12});
+  items.forEach(el=>io.observe(el));
+})();
+
+(function(){
+  const progress = document.getElementById('progress');
+  function update(){
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    progress.style.width = ((window.scrollY / max) * 100).toFixed(2) + '%';
+  }
+  window.addEventListener('scroll', update, {passive:true}); update();
+})();
+
+(function(){
+  const target = new Date('2026-08-26T22:16:00+05:30').getTime();
+  const d = document.getElementById('days'), h = document.getElementById('hours'), m = document.getElementById('minutes'), s = document.getElementById('seconds');
+  function tick(){
+    let diff = Math.max(0, target - Date.now());
+    const days = Math.floor(diff / 86400000); diff -= days * 86400000;
+    const hours = Math.floor(diff / 3600000); diff -= hours * 3600000;
+    const minutes = Math.floor(diff / 60000); diff -= minutes * 60000;
+    const seconds = Math.floor(diff / 1000);
+    d.textContent = String(days); h.textContent = String(hours).padStart(2,'0'); m.textContent = String(minutes).padStart(2,'0'); s.textContent = String(seconds).padStart(2,'0');
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
