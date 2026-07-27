@@ -136,7 +136,7 @@ main{position:relative;z-index:2}
 html, body { max-width:100%; -webkit-text-size-adjust:100%; }
 .gate, .hero { min-height:100vh; }
 @supports (height: 100svh) { .gate, .hero { min-height:100svh; } }
-.gate-card, .hero-card, .mission-card, .event-card, .venue-card, .rsvp-panel, .countdown-card, .sequence-caption, .sequence-pill { -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+.gate-card, .hero-card, .mission-card, .event-card, .venue-card, .rsvp-panel, .countdown-card, .sequence-pill { -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
 .btn, .gate-btn, .sequence-tap { -webkit-tap-highlight-color: transparent; }
 img { max-width:100%; height:auto; }
 .yes-btn.yes-takeover{inset:0!important;width:100vw!important;height:100vh!important;height:100svh!important;border-radius:0!important;font-size:clamp(4.2rem,20vw,16rem)!important;box-shadow:none!important;background:linear-gradient(135deg,var(--espresso),#58271f,var(--pink),var(--yellow))!important;color:white!important;}
@@ -337,7 +337,7 @@ img { max-width:100%; height:auto; }
     <div class="title-row center">
       <p class="eyebrow">The trailer</p>
       <h3>Tap through the chaos</h3>
-      <p class="subcopy">A tiny wedding trailer, built like Instagram Stories. Tap right for the next scene, tap left for the previous one, and let the chaos unfold.</p>
+      <p class="subcopy">A tiny wedding trailer, built like Instagram Stories. Tap right for the next frame, tap left to go back, and let the chaos unfold.</p>
     </div>
     <div class="sequence-wrap">
       <div class="sequence-shell" id="sequenceShell">
@@ -345,7 +345,6 @@ img { max-width:100%; height:auto; }
         <div class="sequence-shine"></div>
         <div class="sequence-dots" id="sequenceDots" aria-hidden="true"></div>
         <div class="sequence-hint">Tap right to continue</div>
-        <div class="sequence-caption"><strong id="frameCaptionTitle">Scene 1 of 10</strong><span id="frameCaption">A grand Indian cousins’ wedding begins with lights, flowers, music, chaos, and one auntie hunting for the groom’s shoe.</span></div>
         <div class="sequence-ui" aria-hidden="true">
           <div class="sequence-pill" id="frameLabel">Frame 1 / 10</div>
           <div class="sequence-pill">Story reel</div>
@@ -523,24 +522,10 @@ const sequenceConfig = {
   const prevBtn = document.getElementById('sequencePrev');
   const dots = document.getElementById('sequenceDots');
   const label = document.getElementById('frameLabel');
-  const captionTitle = document.getElementById('frameCaptionTitle');
-  const caption = document.getElementById('frameCaption');
   let frames = sequenceConfig.imageArray.slice(0,10).filter(Boolean);
   let current = 0;
   let startX = 0;
   let startY = 0;
-  const frameStories = [
-    'A grand Indian cousins’ wedding begins with lights, flowers, music, chaos, and one auntie hunting for the groom’s shoe.',
-    'The boy enters confidently in wedding clothes, pretending he knows exactly where to go.',
-    'He immediately walks into the wrong side and joins the bride’s family photo by mistake.',
-    'Everyone smiles for the photo. He smiles too, confused but fully committed.',
-    'The girl notices him from across the hall and wonders who this random man is.',
-    'He realises he is in the wrong photo and slowly tries to escape without moving his smile.',
-    'The photographer asks for one more shot. The boy is officially trapped.',
-    'The girl laughs so hard she nearly drops her phone.',
-    'Later at the food counter, the boy reaches for a gulab jamun.',
-    'The girl reaches for the same gulab jamun at the exact same time.'
-  ];
   const cache = new Map();
   img.decoding = 'async';
   img.loading = 'eager';
@@ -585,8 +570,6 @@ const sequenceConfig = {
       });
     }, 70);
     label.textContent = 'Frame ' + String(current + 1) + ' / ' + frames.length;
-    if(captionTitle) captionTitle.textContent = 'Scene ' + String(current + 1) + ' of ' + frames.length;
-    if(caption) caption.textContent = frameStories[current] || '';
     updateDots();
   }
   function next(){ setFrame(current + 1, 1); }
