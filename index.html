@@ -131,10 +131,30 @@ main{position:relative;z-index:2}
 
 @media (max-width:900px){.event-card,.event-card.featured-night{grid-column:1/-1}.night-copy{grid-template-columns:1fr}.events{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}.sequence-shine{display:none}}
+
+/* v12 expert responsive polish and browser compatibility */
+html, body { max-width:100%; -webkit-text-size-adjust:100%; }
+.gate, .hero { min-height:100vh; }
+@supports (height: 100svh) { .gate, .hero { min-height:100svh; } }
+.gate-card, .hero-card, .mission-card, .event-card, .venue-card, .rsvp-panel, .countdown-card, .sequence-caption, .sequence-pill { -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+.btn, .gate-btn, .sequence-tap { -webkit-tap-highlight-color: transparent; }
+img { max-width:100%; height:auto; }
+.yes-btn.yes-takeover{inset:0!important;width:100vw!important;height:100vh!important;height:100svh!important;border-radius:0!important;font-size:clamp(4.2rem,20vw,16rem)!important;box-shadow:none!important;background:linear-gradient(135deg,var(--espresso),#58271f,var(--pink),var(--yellow))!important;color:white!important;}
+.gate-card.yes-dominating{overflow:visible}.gate-card.yes-dominating .gate-note{opacity:.55;transform:translateY(10px)}.gate-card.yes-dominating .kicker,.gate-card.yes-dominating p{opacity:.18}.gate-card.yes-dominating h1{opacity:.22}
+
+.events{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,22px);align-items:stretch}.event-card{grid-column:auto;min-height:100%;padding:clamp(20px,2.3vw,28px)}.event-card.featured-night{grid-column:span 2}.pelli-card{grid-column:span 1}.haldi-card,.reception-card,.wedding-card{grid-column:span 1}.reception-card{border:2px solid rgba(29,185,171,.22)}.wedding-card{border:2px solid rgba(126,71,212,.18)}.event-card p{font-size:clamp(.95rem,1.25vw,1.06rem)}.event-time{font-size:clamp(1.75rem,3.2vw,2.35rem)}.night-copy{grid-template-columns:1fr;gap:16px}.night-details{max-width:100%}.dress-code{line-height:1.25}
+
+.refined-venue-card{display:grid;grid-template-columns:minmax(0,1fr) 150px;grid-template-areas:"head pin" "venues pin" "actions pin";align-items:center;gap:clamp(18px,3vw,28px);padding:clamp(22px,4vw,42px);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(255,247,232,.88) 42%,rgba(232,255,249,.7));border:1px solid rgba(255,255,255,.9)}.venue-head{grid-area:head;text-align:left}.venue-subcopy{margin-left:0;margin-right:0;max-width:780px}.venue-grid{grid-area:venues;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,18px)}.venue-mini-card{border-radius:24px;padding:clamp(18px,2.6vw,24px);background:rgba(255,255,255,.76);border:1px solid rgba(39,21,16,.08);box-shadow:0 14px 34px rgba(39,21,16,.09);display:flex;flex-direction:column;gap:10px;min-height:100%}.venue-mini-card h4{font-size:clamp(1.3rem,2.6vw,2rem);line-height:1;margin:0;letter-spacing:-.04em}.venue-mini-card p{margin:0;color:var(--muted);line-height:1.5}.venue-location{font-weight:900;color:var(--espresso)!important}.venue-badge{display:inline-flex;align-self:flex-start;border-radius:999px;background:rgba(39,21,16,.08);color:var(--espresso);padding:.48rem .7rem;font-size:.72rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.radisson-card{background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(255,231,242,.72))}.saipriya-card{background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(222,255,247,.72))}.venue-actions{grid-area:actions;display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:2px}.calendar-helper{margin:0;color:var(--muted);font-size:.95rem;line-height:1.4;max-width:440px}.btn.compact{margin-top:auto;align-self:flex-start;min-height:44px;padding:.82rem 1rem}.refined-venue-card .map-blob{grid-area:pin;width:150px;border-radius:34px;align-self:stretch;min-height:220px;font-size:4rem;background:radial-gradient(circle at 35% 25%,rgba(255,200,65,.92),transparent 32%),radial-gradient(circle at 66% 74%,rgba(29,185,171,.76),transparent 36%),linear-gradient(145deg,#fff,#ffedf6);box-shadow:inset 0 0 0 1px rgba(39,21,16,.08),0 16px 40px rgba(39,21,16,.1)}
+
+@media (max-width:980px){.section{width:min(100vw - 30px,820px)}.events{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.event-card{padding:20px}.event-card.featured-night{grid-column:span 3}.pelli-card{grid-column:span 3}.haldi-card,.reception-card,.wedding-card{grid-column:span 1}.night-copy .bigline{font-size:clamp(1.75rem,5vw,2.8rem)}.refined-venue-card{grid-template-columns:1fr;grid-template-areas:"head" "venues" "actions";text-align:left}.refined-venue-card .map-blob{display:none}.venue-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.venue-actions{align-items:flex-start}.calendar-helper{max-width:100%}}
+@media (max-width:760px){.events{grid-template-columns:1fr}.event-card,.event-card.featured-night,.pelli-card,.haldi-card,.reception-card,.wedding-card{grid-column:1/-1}.event-card{padding:20px;border-radius:24px}.venue-card.refined-venue-card{display:block;text-align:left;padding:22px;border-radius:30px}.venue-head{text-align:center}.venue-card.refined-venue-card h3{font-size:clamp(2.4rem,11vw,3.8rem);line-height:.92}.venue-grid{grid-template-columns:1fr;gap:14px;margin-top:20px}.venue-mini-card{padding:18px;border-radius:22px}.venue-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}.calendar-helper{text-align:center;font-size:.9rem}.btn.compact,.venue-actions .btn{width:100%;align-self:stretch}.venue-mini-card h4{font-size:1.55rem}.venue-mini-card p{font-size:.98rem}.sequence-caption{background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,248,224,.9))}}
+@media (max-width:420px){.section{width:calc(100vw - 20px);padding:52px 0}.venue-card.refined-venue-card{padding:20px 16px;border-radius:28px}.venue-subcopy{font-size:.96rem;line-height:1.52}.venue-badge{font-size:.66rem}.event-time{font-size:1.65rem}.event-card p,.venue-mini-card p{font-size:.94rem}.countdown{gap:8px}.timebox{padding:14px 8px;border-radius:18px}.timebox span{font-size:.66rem}.yes-btn.yes-takeover{font-size:clamp(4rem,26vw,8rem)!important}}
+@media (hover:none){.sequence-tap:hover::after{opacity:0}}
+
 </style>
 </head>
 <body class="locked">
-<!-- GitHub Pages build: v11-events-yes-takeover -->
+<!-- GitHub Pages build: v12-responsive-calendar-events -->
 <div class="scroll-progress" id="progress"></div><div class="noise"></div><div class="bg-orb one"></div><div class="bg-orb two"></div><div class="bg-orb three"></div>
 
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
@@ -180,7 +200,7 @@ main{position:relative;z-index:2}
     'Your plus-one energy has been pre-approved.',
     'The playlist needs your dramatic entry.',
     'The shimmer theme has entered the chat.',
-    'Last chance before the YES button becomes the whole website.',
+    'The YES button is preparing for full-screen domination.',
     'Surrender gracefully and tap YES.'
   ];
   const noLabels = ['No','Are you sure?','Tiny no','Nope?','Try again','Still no?','Risky choice','No-ish','Unavailable','Denied','Not today','Seriously?','Last no','It is huge now','Final no?','Surrender'];
@@ -193,7 +213,7 @@ main{position:relative;z-index:2}
     if (unlocked) return;
     noCount++;
     const isMobile = window.matchMedia('(max-width: 760px)').matches;
-    const scale = Math.min(isMobile ? 5.8 : 7.5, 1 + noCount * (isMobile ? 0.48 : 0.58));
+    const scale = Math.min(isMobile ? 7.8 : 9.2, 1 + noCount * (isMobile ? 0.62 : 0.74));
     yesBtn.style.setProperty('--yes-scale', scale);
     gateActions.style.setProperty('--yes-scale', scale);
     const rect = gateCard.getBoundingClientRect();
@@ -210,7 +230,7 @@ main{position:relative;z-index:2}
     noBtn.style.setProperty('--no-s', Math.max(.46, 1 - noCount * .055));
     noBtn.textContent = noLabels[Math.min(noCount, noLabels.length - 1)];
     note.textContent = notes[Math.min(noCount - 1, notes.length - 1)];
-    if (noCount >= 8) {
+    if (noCount >= 6) {
       yesBtn.classList.add('yes-takeover');
       gateCard.classList.add('yes-dominating');
       yesBtn.textContent = 'YES';
@@ -358,7 +378,7 @@ main{position:relative;z-index:2}
       <p class="subcopy">Five events. Three days. One wedding week. Please treat the times like movie showtimes and arrive before the interval.</p>
     </div>
     <div class="events">
-      <article class="event-card">
+      <article class="event-card pelli-card">
         <div class="episode">Episode 01</div>
         <div class="event-date">Sunday, 23 August 2026</div>
         <div class="event-time">10:15 AM</div>
@@ -367,7 +387,7 @@ main{position:relative;z-index:2}
         <p class="event-location">Location: Our residence</p>
       </article>
 
-      <article class="event-card featured-night">
+      <article class="event-card featured-night musical-card">
         <div class="episode">Episode 02</div>
         <div class="event-date">Monday, 24 August 2026</div>
         <div class="event-time">7:30 PM</div>
@@ -386,7 +406,7 @@ main{position:relative;z-index:2}
         </div>
       </article>
 
-      <article class="event-card">
+      <article class="event-card haldi-card">
         <div class="episode">Episode 03</div>
         <div class="event-date">Wednesday, 26 August 2026</div>
         <div class="event-time">11:00 AM</div>
@@ -395,7 +415,7 @@ main{position:relative;z-index:2}
         <p class="event-location">Location: Sai Priya Resorts, Vizag</p>
       </article>
 
-      <article class="event-card">
+      <article class="event-card reception-card">
         <div class="episode">Episode 04</div>
         <div class="event-date">Wednesday, 26 August 2026</div>
         <div class="event-time">7:30 PM</div>
@@ -404,7 +424,7 @@ main{position:relative;z-index:2}
         <p class="event-location">Location: Sai Priya Resorts, Vizag</p>
       </article>
 
-      <article class="event-card">
+      <article class="event-card wedding-card">
         <div class="episode">Episode 05</div>
         <div class="event-date">Wednesday, 26 August 2026</div>
         <div class="event-time">10:16 PM</div>
@@ -431,20 +451,37 @@ main{position:relative;z-index:2}
     </div>
   </section>
 
-  <section class="section reveal">
-    <div class="venue-card">
-      <div>
+  <section class="section reveal" id="venues">
+    <div class="venue-card refined-venue-card">
+      <div class="venue-head">
         <p class="eyebrow">Where the plot happens</p>
         <h3>Vizag, get ready</h3>
-        <p><strong>Radisson Blu Hotel, Sharada Hall, Vizag</strong><br>Musical Night on Monday, 24 August at 7:30 PM.</p>
-        <p style="margin-top:12px"><strong>Sai Priya Resorts, Vizag</strong><br>Haldi, Reception, and Wedding on Wednesday, 26 August.</p>
-        <p style="margin-top:12px">Come to the right venue. This is not the day to trust memory, vibes, or one overconfident cousin.</p>
-        <div class="cta-row" style="margin-top:22px">
-          <a class="btn primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sai+Priya+Resorts+Vizag">Sai Priya directions</a>
-          <a class="btn light" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Radisson+Blu+Hotel+Sharada+Hall+Vizag">Radisson directions</a>
-          <a class="btn light" id="calendarLink" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dheeraj%20and%20Virshita%20Wedding%20Ceremony&dates=20260826T221600/20260826T233600&ctz=Asia/Kolkata&location=Sai+Priya+Resorts%2C%20Sai%20Suraj%201%20Hall%2C%20Vizag&details=Wedding%20muhurtham%20at%2010%3A16%20PM.">Add wedding to calendar</a>
-        </div>
+        <p class="subcopy venue-subcopy">Two venues, five events, and absolutely no room for “I thought it was somewhere else.” Save both locations now and thank yourself later.</p>
       </div>
+
+      <div class="venue-grid" aria-label="Wedding venue details">
+        <article class="venue-mini-card radisson-card">
+          <span class="venue-badge">Monday Night</span>
+          <h4>Radisson Blu Hotel</h4>
+          <p class="venue-location">Sharada Hall, Vizag</p>
+          <p>Musical Night on Monday, 24 August 2026 at 7:30 PM.</p>
+          <a class="btn light compact" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Radisson+Blu+Hotel+Sharada+Hall+Vizag">Radisson directions</a>
+        </article>
+
+        <article class="venue-mini-card saipriya-card">
+          <span class="venue-badge">Wednesday Finale</span>
+          <h4>Sai Priya Resorts</h4>
+          <p class="venue-location">Vizag</p>
+          <p>Haldi at 11:00 AM, Reception at 7:30 PM, and Wedding at 10:16 PM in Sai Suraj 1 Hall.</p>
+          <a class="btn primary compact" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sai+Priya+Resorts+Vizag">Sai Priya directions</a>
+        </article>
+      </div>
+
+      <div class="venue-actions">
+        <button class="btn pink" id="calendarLink" type="button">Add all events to calendar</button>
+        <p class="calendar-helper">Downloads one calendar file with all 5 events. Open it on iPhone, Android, Mac, or desktop to add them to your calendar.</p>
+      </div>
+
       <div class="map-blob" aria-hidden="true">📍</div>
     </div>
   </section>
@@ -623,6 +660,50 @@ const sequenceConfig = {
     d.textContent = String(days); h.textContent = String(hours).padStart(2,'0'); m.textContent = String(minutes).padStart(2,'0'); s.textContent = String(seconds).padStart(2,'0');
   }
   tick(); setInterval(tick,1000);
+})();
+
+
+(function(){
+  const calendarButton = document.getElementById('calendarLink');
+  if(!calendarButton) return;
+  const events = [
+    {title:'Dheeraj & Virshita: Pelli Koduku', start:'20260823T101500', end:'20260823T121500', location:'Our residence', description:'Groom-side Pelli Koduku ceremony.'},
+    {title:'Dheeraj & Virshita: Musical Night', start:'20260824T193000', end:'20260824T223000', location:'Radisson Blu Hotel, Sharada Hall, Vizag', description:'From Moonlight to Match Point. A night of music, memories, mischief, games, dancing, laughter, and light finger-food dinner. Dress code: Gold / Black Shimmer.'},
+    {title:'Dheeraj & Virshita: Haldi', start:'20260826T110000', end:'20260826T130000', location:'Sai Priya Resorts, Vizag', description:'Haldi ceremony.'},
+    {title:'Dheeraj & Virshita: Reception', start:'20260826T193000', end:'20260826T220000', location:'Sai Priya Resorts, Vizag', description:'Reception celebration.'},
+    {title:'Dheeraj & Virshita: Wedding', start:'20260826T221600', end:'20260826T234500', location:'Sai Priya Resorts, Sai Suraj 1 Hall, Vizag', description:'Wedding muhurtham at 10:16 PM.'}
+  ];
+  function escapeICS(value){
+    return String(value).replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');
+  }
+  function makeICS(){
+    const stamp = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
+    const lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Dheeraj and Virshita Wedding//Invite//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:Dheeraj & Virshita Wedding Week','X-WR-TIMEZONE:Asia/Kolkata','BEGIN:VTIMEZONE','TZID:Asia/Kolkata','BEGIN:STANDARD','DTSTART:19700101T000000','TZOFFSETFROM:+0530','TZOFFSETTO:+0530','TZNAME:IST','END:STANDARD','END:VTIMEZONE'];
+    events.forEach((event, index) => {
+      lines.push('BEGIN:VEVENT');
+      lines.push('UID:dheeraj-virshita-2026-' + (index + 1) + '@wedding-invite');
+      lines.push('DTSTAMP:' + stamp);
+      lines.push('SUMMARY:' + escapeICS(event.title));
+      lines.push('DTSTART;TZID=Asia/Kolkata:' + event.start);
+      lines.push('DTEND;TZID=Asia/Kolkata:' + event.end);
+      lines.push('LOCATION:' + escapeICS(event.location));
+      lines.push('DESCRIPTION:' + escapeICS(event.description));
+      lines.push('END:VEVENT');
+    });
+    lines.push('END:VCALENDAR');
+    return lines.join('\r\n');
+  }
+  calendarButton.addEventListener('click', () => {
+    const ics = makeICS();
+    const blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'dheeraj-virshita-wedding-events.ics';
+    document.body.appendChild(link);
+    link.click();
+    window.setTimeout(() => { URL.revokeObjectURL(url); link.remove(); }, 1200);
+  });
 })();
 </script>
 </body>
