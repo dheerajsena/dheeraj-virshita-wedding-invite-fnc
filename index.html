@@ -93,8 +93,13 @@ main{position:relative;z-index:2}
 .sequence-tap{position:absolute;top:0;bottom:0;width:50%;z-index:7;border:0;background:transparent;color:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}.sequence-tap.left{left:0}.sequence-tap.right{right:0}.sequence-tap:focus-visible{outline:3px solid var(--yellow);outline-offset:-8px}.sequence-tap::after{content:attr(data-label);position:absolute;top:50%;transform:translateY(-50%) scale(.96);opacity:0;background:rgba(255,255,255,.82);color:var(--espresso);border-radius:999px;padding:.6rem .85rem;font-weight:950;letter-spacing:.04em;box-shadow:0 12px 30px rgba(0,0,0,.18);transition:opacity .18s ease,transform .18s ease}.sequence-tap.left::after{left:16px}.sequence-tap.right::after{right:16px}.sequence-tap:active::after,.sequence-tap:hover::after{opacity:1;transform:translateY(-50%) scale(1)}.sequence-ui{position:absolute;left:18px;right:18px;bottom:18px;z-index:6;display:flex;align-items:center;justify-content:space-between;gap:12px;pointer-events:none}.sequence-pill{border-radius:999px;background:rgba(255,255,255,.84);color:var(--espresso);padding:.68rem .9rem;font-weight:950;font-size:.82rem;box-shadow:0 10px 24px rgba(0,0,0,.18);backdrop-filter:blur(12px)}.sequence-dots{position:absolute;left:16px;right:16px;top:16px;z-index:8;display:grid;grid-template-columns:repeat(10,1fr);gap:5px;pointer-events:none}.sequence-dots span{height:5px;border-radius:999px;background:rgba(255,255,255,.34);overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.18)}.sequence-dots span::before{content:'';display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--teal));transition:width .25s ease}.sequence-dots span.done::before,.sequence-dots span.active::before{width:100%}.sequence-hint{position:absolute;top:34px;left:16px;z-index:6;background:rgba(39,21,16,.82);color:white;border-radius:999px;padding:.58rem .82rem;font-size:.76rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}.sequence-caption{position:absolute;left:18px;right:18px;bottom:76px;z-index:6;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(255,248,224,.86));color:var(--espresso);border:1px solid rgba(255,255,255,.7);border-radius:22px;padding:14px 16px;box-shadow:0 18px 45px rgba(0,0,0,.18);backdrop-filter:blur(14px)}.sequence-caption strong{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--pink);margin-bottom:4px}.sequence-caption span{display:block;font-size:clamp(.86rem,1.8vw,1.02rem);line-height:1.35;font-weight:800}
 @media(max-width:640px){.sequence-shell{height:72vh;min-height:500px;border-radius:24px}.sequence-caption{left:12px;right:12px;bottom:72px;border-radius:18px;padding:12px 13px}.sequence-ui{left:12px;right:12px;bottom:14px}.sequence-pill{font-size:.72rem;padding:.58rem .72rem}.sequence-hint{top:30px;left:12px;font-size:.66rem}.sequence-dots{left:12px;right:12px;top:12px;gap:4px}.sequence-tap::after{display:none}}
 
-.events{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.event-card{padding:22px}.episode{display:inline-flex;align-items:center;gap:.45rem;margin-bottom:18px;border-radius:999px;background:rgba(39,21,16,.08);padding:.55rem .75rem;font-size:.78rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.event-date{font-weight:950;color:var(--pink);margin-bottom:6px}.event-time{font-size:2rem;line-height:1;font-weight:1000;letter-spacing:-.04em;margin-bottom:12px}.event-card:nth-child(1){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,240,194,.74))}.event-card:nth-child(2){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(214,247,255,.74))}.event-card:nth-child(3){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,220,235,.74))}
+.events{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}.event-card{padding:24px;grid-column:span 3}.event-card.featured-night{grid-column:span 6;background:linear-gradient(145deg,rgba(39,21,16,.96),rgba(96,42,86,.92));color:white}.event-card.featured-night p,.event-card.featured-night .event-location{color:rgba(255,255,255,.78)}.episode{display:inline-flex;align-items:center;gap:.45rem;margin-bottom:18px;border-radius:999px;background:rgba(39,21,16,.08);padding:.55rem .75rem;font-size:.78rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.featured-night .episode{background:rgba(255,255,255,.14);color:#fff}.event-date{font-weight:950;color:var(--pink);margin-bottom:6px}.featured-night .event-date{color:var(--yellow)}.event-time{font-size:2rem;line-height:1;font-weight:1000;letter-spacing:-.04em;margin-bottom:12px}.event-location{margin:10px 0 0;color:var(--muted);font-weight:850}.event-card:nth-child(1){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,240,194,.74))}.event-card:nth-child(3){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,220,235,.74))}.event-card:nth-child(4){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(220,255,246,.74))}.event-card:nth-child(5){background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(235,227,255,.74))}.night-copy{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start;margin-top:8px}.night-copy .bigline{font-size:clamp(1.5rem,3.8vw,3rem);line-height:.95;font-weight:1000;letter-spacing:-.05em;margin:0;color:#fff}.night-details{border-radius:22px;background:rgba(255,255,255,.12);padding:18px;border:1px solid rgba(255,255,255,.16)}.dress-code{display:inline-flex;margin-top:14px;border-radius:999px;background:linear-gradient(90deg,var(--yellow),#fff1a8);color:var(--espresso);padding:.58rem .82rem;font-weight:950}
 .countdown-card{padding:clamp(22px,4vw,36px);display:grid;grid-template-columns:1.05fr 1fr;gap:20px;align-items:center}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.timebox{border-radius:22px;background:var(--espresso);color:white;padding:18px 10px;text-align:center;box-shadow:0 16px 32px rgba(39,21,16,.16)}.timebox strong{display:block;font-size:clamp(1.8rem,5vw,3.1rem);letter-spacing:-.06em;line-height:.95}.timebox span{display:block;margin-top:7px;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:#f5d788}.venue-card{padding:clamp(22px,4vw,36px);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.map-blob{width:180px;aspect-ratio:1;border-radius:36px;background:radial-gradient(circle at 35% 30%,var(--yellow),transparent 34%),radial-gradient(circle at 68% 75%,var(--teal),transparent 38%),linear-gradient(135deg,#fff,#ffe7f1);display:grid;place-items:center;font-size:4.2rem;box-shadow:inset 0 0 0 1px rgba(39,21,16,.08)}.rsvp-panel{padding:clamp(24px,5vw,44px);text-align:center;background:linear-gradient(145deg,rgba(255,255,255,.8),rgba(255,235,245,.74))}.rsvp-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:26px 0}.rsvp-option{border-radius:22px;background:white;border:1px solid rgba(39,21,16,.1);padding:16px;font-weight:950;box-shadow:0 10px 24px rgba(39,21,16,.08)}.credits{text-align:center;padding-bottom:calc(env(safe-area-inset-bottom) + 70px)}.credits h3{font-size:clamp(2.7rem,8vw,6.5rem)}.floating-sticker{display:inline-flex;align-items:center;gap:.45rem;padding:.7rem .9rem;border-radius:999px;background:var(--yellow);font-weight:950;margin:20px 8px 0;animation:bob 4s ease-in-out infinite}.floating-sticker:nth-child(2){background:var(--teal);animation-delay:-1s}.floating-sticker:nth-child(3){background:var(--pink);color:white;animation-delay:-2s}
+
+
+.yes-btn.yes-takeover{position:fixed!important;inset:calc(env(safe-area-inset-top) + 12px) 12px calc(env(safe-area-inset-bottom) + 12px)!important;width:calc(100vw - 24px)!important;height:calc(100svh - 24px)!important;min-width:0!important;border-radius:clamp(30px,6vw,72px)!important;font-size:clamp(3.5rem,17vw,12rem)!important;letter-spacing:-.06em;z-index:130!important;transform:none!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,var(--espresso),#5b2d2a,var(--pink))!important;box-shadow:0 0 0 999px rgba(255,244,223,.72),0 36px 90px rgba(39,21,16,.34)!important;animation:yesBreath 1.25s ease-in-out infinite alternate!important}
+.gate-card.yes-dominating .no-btn{opacity:.06;pointer-events:none}.gate-card.yes-dominating .gate-note{opacity:.35}
+@keyframes yesBreath{from{filter:saturate(1)}to{filter:saturate(1.18)}}
 
 /* Mobile polish and fun invite refinements */
 .gate{width:100svw;min-height:100svh;justify-items:center;align-items:center}
@@ -124,11 +129,12 @@ main{position:relative;z-index:2}
   .floating-sticker{animation-duration:2.1s;margin:8px 4px 0}
 }
 
+@media (max-width:900px){.event-card,.event-card.featured-night{grid-column:1/-1}.night-copy{grid-template-columns:1fr}.events{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}.sequence-shine{display:none}}
 </style>
 </head>
 <body class="locked">
-<!-- GitHub Pages build: v10-instagram-story-tap-reel -->
+<!-- GitHub Pages build: v11-events-yes-takeover -->
 <div class="scroll-progress" id="progress"></div><div class="noise"></div><div class="bg-orb one"></div><div class="bg-orb two"></div><div class="bg-orb three"></div>
 
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
@@ -170,10 +176,14 @@ main{position:relative;z-index:2}
     'Even Google Maps is preparing your route.',
     'The No button is losing confidence.',
     'Quick reminder: attendance looks good on you.',
-    'Last chance before the YES button starts flexing.',
+    'Your future photos are waiting.',
+    'Your plus-one energy has been pre-approved.',
+    'The playlist needs your dramatic entry.',
+    'The shimmer theme has entered the chat.',
+    'Last chance before the YES button becomes the whole website.',
     'Surrender gracefully and tap YES.'
   ];
-  const noLabels = ['No','Are you sure?','Tiny no','Nope?','Try again','Still no?','Risky choice','No-ish','Unavailable','Denied','Final no?','Surrender'];
+  const noLabels = ['No','Are you sure?','Tiny no','Nope?','Try again','Still no?','Risky choice','No-ish','Unavailable','Denied','Not today','Seriously?','Last no','It is huge now','Final no?','Surrender'];
   function wiggleCard(){
     gateCard.classList.remove('dodged');
     void gateCard.offsetWidth;
@@ -183,7 +193,7 @@ main{position:relative;z-index:2}
     if (unlocked) return;
     noCount++;
     const isMobile = window.matchMedia('(max-width: 760px)').matches;
-    const scale = Math.min(isMobile ? 2.25 : 3.15, 1 + noCount * (isMobile ? 0.24 : 0.32));
+    const scale = Math.min(isMobile ? 5.8 : 7.5, 1 + noCount * (isMobile ? 0.48 : 0.58));
     yesBtn.style.setProperty('--yes-scale', scale);
     gateActions.style.setProperty('--yes-scale', scale);
     const rect = gateCard.getBoundingClientRect();
@@ -200,6 +210,12 @@ main{position:relative;z-index:2}
     noBtn.style.setProperty('--no-s', Math.max(.46, 1 - noCount * .055));
     noBtn.textContent = noLabels[Math.min(noCount, noLabels.length - 1)];
     note.textContent = notes[Math.min(noCount - 1, notes.length - 1)];
+    if (noCount >= 8) {
+      yesBtn.classList.add('yes-takeover');
+      gateCard.classList.add('yes-dominating');
+      yesBtn.textContent = 'YES';
+      note.textContent = 'The YES button has officially taken over the screen. Tap it and enter.';
+    }
     wiggleCard();
   }
   function dodgeIfNear(clientX, clientY){
@@ -283,7 +299,7 @@ main{position:relative;z-index:2}
       <div class="hero-copy reveal">
         <div class="kicker">August 2026: the takeover begins</div>
         <h2>Dheeraj <span>x Virshita</span></h2>
-        <p class="hero-lede">This August, two people get married, outfits get judged, friends overcommit to dancing, and cousins mysteriously become event managers.</p>
+        <p class="hero-lede">This August, two people get married, five events take over Vizag, outfits get judged, friends overcommit to dancing, and cousins mysteriously become unpaid event managers.</p>
         <div class="cta-row">
           <a class="btn primary" href="#episodes">View the episodes</a>
           <a class="btn pink" href="#rsvp">Lock attendance</a>
@@ -301,7 +317,7 @@ main{position:relative;z-index:2}
     <div class="title-row center">
       <p class="eyebrow">The trailer</p>
       <h3>Tap through the chaos</h3>
-      <p class="subcopy">This reel now behaves like Instagram Stories. Tap the right side to move forward, tap the left side to go back, and watch the story move frame by frame.</p>
+      <p class="subcopy">A tiny wedding trailer, built like Instagram Stories. Tap right for the next scene, tap left for the previous one, and let the chaos unfold.</p>
     </div>
     <div class="sequence-wrap">
       <div class="sequence-shell" id="sequenceShell">
@@ -326,12 +342,12 @@ main{position:relative;z-index:2}
         <p class="eyebrow">Your assignment</p>
         <h3>Report to wedding duty</h3>
       </div>
-      <p class="subcopy">You have been selected for a highly sensitive operation involving dancing, dressing up, food, photos, and pretending you are not tired.</p>
+      <p class="subcopy">You have been selected for a highly sensitive operation involving dancing, dressing up, food, photos, glitter, beach-road logistics, and pretending you are not tired.</p>
     </div>
     <div class="mission-grid">
       <article class="mission-card"><span class="emoji">🕺</span><h4>Dress code</h4><p>Come dangerously well dressed. Outfit repetition will be noticed by at least three people and one camera.</p></article>
       <article class="mission-card"><span class="emoji">🔋</span><h4>Energy level</h4><p>Full battery only. No 12 percent behaviour during photos, dancing, or food rounds.</p></article>
-      <article class="mission-card"><span class="emoji">📣</span><h4>Excuse policy</h4><p>All excuses will be forwarded to aunties for review, escalation, and emotional follow-up.</p></article>
+      <article class="mission-card"><span class="emoji">📣</span><h4>Excuse policy</h4><p>All excuses will be reviewed by the inner circle, cross-checked with flight prices, and quietly judged over snacks.</p></article>
     </div>
   </section>
 
@@ -339,31 +355,62 @@ main{position:relative;z-index:2}
     <div class="title-row center">
       <p class="eyebrow">Episodes you cannot skip</p>
       <h3>The event lineup</h3>
-      <p class="subcopy">Precise muhurtham times are not typos. This is a Telugu wedding. We do timing like cinema releases.</p>
+      <p class="subcopy">Five events. Three days. One wedding week. Please treat the times like movie showtimes and arrive before the interval.</p>
     </div>
     <div class="events">
       <article class="event-card">
         <div class="episode">Episode 01</div>
         <div class="event-date">Sunday, 23 August 2026</div>
         <div class="event-time">10:15 AM</div>
-        <h4>Pellikoduku</h4>
-        <p>Groom-side chaos officially begins. Bless, laugh, take photos, and act like you know exactly what is happening.</p>
+        <h4>Pelli Koduku</h4>
+        <p>Groom-side celebrations begin at home. Blessings, photos, family commentary, and the first official warning that this wedding week is not a drill.</p>
+        <p class="event-location">Location: Our residence</p>
       </article>
-      <article class="event-card rata-card">
+
+      <article class="event-card featured-night">
         <div class="episode">Episode 02</div>
-        <div class="event-date">Sunday, 23 August 2026</div>
-        <div class="event-time">11:21 AM</div>
-        <h4>Rata Ceremony</h4>
-        <div class="rata-callout" aria-label="Rata ceremony note">
-          <p>[Rata ceremony description to be added. For now, just show up, smile confidently, and act like you absolutely know what is happening.]</p>
+        <div class="event-date">Monday, 24 August 2026</div>
+        <div class="event-time">7:30 PM</div>
+        <h4>Musical Night</h4>
+        <div class="night-copy">
+          <div>
+            <p class="bigline">From Moonlight to Match Point</p>
+            <p style="margin-top:12px">A night of music, memories and mischief.</p>
+            <span class="dress-code">Dress code: Gold / Black Shimmer</span>
+          </div>
+          <div class="night-details">
+            <p>An evening inspired by music, laughter, family, and new beginnings. A celebration that brings two families together while quietly honouring the man who taught us that every celebration deserves music.</p>
+            <p style="margin-top:12px">Expect music, games, dancing, laughter, and a light finger-food dinner. Come shiny. Come loud. Come ready.</p>
+            <p class="event-location">Location: Radisson Blu Hotel, Sharada Hall, Vizag</p>
+          </div>
         </div>
       </article>
+
       <article class="event-card">
         <div class="episode">Episode 03</div>
         <div class="event-date">Wednesday, 26 August 2026</div>
+        <div class="event-time">11:00 AM</div>
+        <h4>Haldi</h4>
+        <p>Yellow, laughter, chaos, and people suddenly becoming professional turmeric artists. Wear something you are emotionally ready to sacrifice.</p>
+        <p class="event-location">Location: Sai Priya Resorts, Vizag</p>
+      </article>
+
+      <article class="event-card">
+        <div class="episode">Episode 04</div>
+        <div class="event-date">Wednesday, 26 August 2026</div>
+        <div class="event-time">7:30 PM</div>
+        <h4>Reception</h4>
+        <p>The glam round. Come dressed like your photos may live forever, because they probably will.</p>
+        <p class="event-location">Location: Sai Priya Resorts, Vizag</p>
+      </article>
+
+      <article class="event-card">
+        <div class="episode">Episode 05</div>
+        <div class="event-date">Wednesday, 26 August 2026</div>
         <div class="event-time">10:16 PM</div>
-        <h4>Wedding Ceremony</h4>
-        <p>The main event. The sacred muhurtham. The reason your outfit planning must start now.</p>
+        <h4>Wedding</h4>
+        <p>The sacred muhurtham. The big moment. The reason the group chat, the outfits, and the dance practice all finally make sense.</p>
+        <p class="event-location">Location: Sai Priya Resorts, Sai Suraj 1 Hall, Vizag</p>
       </article>
     </div>
   </section>
@@ -388,12 +435,14 @@ main{position:relative;z-index:2}
     <div class="venue-card">
       <div>
         <p class="eyebrow">Where the plot happens</p>
-        <h3>Sai Priya Resorts</h3>
-        <p>Bheemili Beach Road, Rushikonda, Visakhapatnam, Andhra Pradesh 530045</p>
+        <h3>Vizag, get ready</h3>
+        <p><strong>Radisson Blu Hotel, Sharada Hall, Vizag</strong><br>Musical Night on Monday, 24 August at 7:30 PM.</p>
+        <p style="margin-top:12px"><strong>Sai Priya Resorts, Vizag</strong><br>Haldi, Reception, and Wedding on Wednesday, 26 August.</p>
         <p style="margin-top:12px">Come to the right venue. This is not the day to trust memory, vibes, or one overconfident cousin.</p>
         <div class="cta-row" style="margin-top:22px">
-          <a class="btn primary" id="directionsLink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sai+Priya+Resorts+Bheemili+Beach+Road%2C+Rushikonda%2C+Visakhapatnam%2C+Andhra+Pradesh+530045">Open directions</a>
-          <a class="btn light" id="calendarLink" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dheeraj%20and%20Virshita%20Wedding%20Ceremony&dates=20260826T221600/20260826T233600&ctz=Asia/Kolkata&location=Sai+Priya+Resorts%2C+Bheemili+Beach+Road%2C+Rushikonda%2C+Visakhapatnam%2C+Andhra+Pradesh+530045&details=Wedding%20muhurtham%20at%2010%3A16%20PM.">Add to calendar</a>
+          <a class="btn primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sai+Priya+Resorts+Vizag">Sai Priya directions</a>
+          <a class="btn light" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Radisson+Blu+Hotel+Sharada+Hall+Vizag">Radisson directions</a>
+          <a class="btn light" id="calendarLink" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dheeraj%20and%20Virshita%20Wedding%20Ceremony&dates=20260826T221600/20260826T233600&ctz=Asia/Kolkata&location=Sai+Priya+Resorts%2C%20Sai%20Suraj%201%20Hall%2C%20Vizag&details=Wedding%20muhurtham%20at%2010%3A16%20PM.">Add wedding to calendar</a>
         </div>
       </div>
       <div class="map-blob" aria-hidden="true">📍</div>
@@ -412,7 +461,7 @@ main{position:relative;z-index:2}
         <div class="rsvp-option">Yes, but I may cry</div>
       </div>
       <a class="btn pink" href="[RSVP_LINK_PLACEHOLDER]">Lock my attendance</a>
-      <p style="margin-top:18px;font-size:.92rem">Once submitted, your attendance may be used in family conversations, seating plans, dance groups, and emotional blackmail.</p>
+      <p style="margin-top:18px;font-size:.92rem">Once submitted, your attendance may be used for seating plans, dance groups, snack-count forecasting, and friendly reminders.</p>
     </div>
   </section>
 
