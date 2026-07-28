@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dheeraj & Virshita | The Wedding Week</title>
+<title>Dheeraj & Virshita | Wedding Week Invitation</title>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -154,20 +154,20 @@ img { max-width:100%; height:auto; }
 </style>
 </head>
 <body class="locked">
-<!-- GitHub Pages build: v14-elegant-copy-yes -->
+<!-- GitHub Pages build: v15-10-copy-polish -->
 <div class="scroll-progress" id="progress"></div><div class="noise"></div><div class="bg-orb one"></div><div class="bg-orb two"></div><div class="bg-orb three"></div>
 
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <div class="gate-card">
     <div class="pop-confetti" id="gateConfetti"></div>
-    <div class="kicker">A note for our inner circle</div>
+    <div class="kicker">For our inner circle</div>
     <h1 id="gate-title">Are you attending?</h1>
-    <p>Before the details unfold, answer one small question for us.</p>
+    <p>Before the invitation opens, we need one honest answer.</p>
     <div class="gate-actions">
       <button class="gate-btn yes-btn" id="yesBtn" type="button" style="--yes-scale:1">YES</button>
       <button class="gate-btn no-btn" id="noBtn" type="button">No</button>
     </div>
-    <div class="gate-note" id="gateNote">We are hoping your answer leans festive.</div>
+    <div class="gate-note" id="gateNote">We would love to see you there.</div>
   </div>
 
 </div>
@@ -187,19 +187,21 @@ img { max-width:100%; height:auto; }
   let unlocked = false;
   const notes = [
     'Take a moment. We will wait.',
-    'The celebration will feel better with you in it.',
-    'Some answers are simply more festive than others.',
-    'Your calendar is already considering it.',
-    'The outfit possibilities are too good to ignore.',
-    'There is a seat, a plate, and probably a photo waiting for you.',
-    'The inner circle respectfully recommends YES.',
-    'This is becoming less of a question and more of a gentle invitation.',
-    'The YES button is making a very graceful case.',
+    'Your presence would make this week warmer.',
+    'There is probably already a plate with your name on it.',
+    'Think of the music, the food and the photographs.',
+    'The inner circle is gently leaning towards yes.',
+    'Every good story needs the right people in the room.',
+    'This answer is starting to look very promising.',
+    'The YES button is making its case with great dignity.',
+    'You are one tap away from being part of the celebration.',
     'Almost there. Let the good answer win.',
-    'The screen knows what the heart wants.',
+    'The invitation is slowly taking over.',
+    'We admire your commitment to the bit.',
+    'Now the screen is also joining our side.',
     'Tap YES and come celebrate with us.'
   ];
-  const noLabels = ['No','Maybe no','Not yet','Still no?','One more?','Careful','Almost yes','Last chance','Hmm','Really?','Be kind','Surrender'];
+  const noLabels = ['No','Maybe no','Not yet','Still no?','One more?','Careful','Almost yes','Last chance','Hmm','Really?','Be kind','Nearly there','Please?','Surrender'];
   function wiggleCard(){
     gateCard.classList.remove('dodged');
     void gateCard.offsetWidth;
@@ -211,15 +213,15 @@ img { max-width:100%; height:auto; }
     const isMobile = window.matchMedia('(max-width: 760px)').matches;
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-    const progress = Math.min(1, noCount / 11);
+    const progress = Math.min(1, noCount / 14);
     const eased = 1 - Math.pow(1 - progress, 2.2);
     const startW = isMobile ? 126 : 132;
     const startH = isMobile ? 58 : 60;
     const maxW = Math.min(vw - (isMobile ? 42 : 96), isMobile ? 520 : 760);
-    const maxH = Math.min(vh * (isMobile ? 0.34 : 0.30), isMobile ? 260 : 300);
+    const maxH = Math.min(vh * (isMobile ? 0.42 : 0.34), isMobile ? 320 : 340);
     const w = Math.round(startW + (maxW - startW) * eased);
     const h = Math.round(startH + (maxH - startH) * eased);
-    const font = (1 + (isMobile ? 3.25 : 4.4) * eased).toFixed(2);
+    const font = (1 + (isMobile ? 4.2 : 5.2) * eased).toFixed(2);
     yesBtn.style.setProperty('--yes-w', w + 'px');
     yesBtn.style.setProperty('--yes-h', h + 'px');
     yesBtn.style.setProperty('--yes-font', font + 'rem');
@@ -238,10 +240,10 @@ img { max-width:100%; height:auto; }
     noBtn.style.setProperty('--no-s', Math.max(.48, 1 - noCount * .045));
     noBtn.textContent = noLabels[Math.min(noCount, noLabels.length - 1)];
     note.textContent = notes[Math.min(noCount - 1, notes.length - 1)];
-    if (noCount >= 8) {
+    if (noCount >= 10) {
       gateCard.classList.add('yes-dominating');
     }
-    if (noCount >= 12) {
+    if (noCount >= 15) {
       yesBtn.classList.add('yes-takeover');
       gateCard.classList.add('yes-dominating');
       yesBtn.textContent = 'YES';
@@ -328,12 +330,12 @@ img { max-width:100%; height:auto; }
   <section class="hero section">
     <div class="hero-inner">
       <div class="hero-copy reveal">
-        <div class="kicker">August 2026, Vizag</div>
-        <h2>Dheeraj <span>x Virshita</span></h2>
-        <p class="hero-lede">This August, we begin our wedding week in Vizag, surrounded by the people who have shaped our story, laughed with us, travelled with us, and made every celebration feel like home.</p>
+        <div class="kicker">Vizag · August 2026</div>
+        <h2>Dheeraj <span>× Virshita</span></h2>
+        <p class="hero-lede">This August, our families come together in Vizag for a wedding week filled with blessings, music, laughter, and the people who have made our story feel like home.</p>
         <div class="cta-row">
-          <a class="btn primary" href="#episodes">View the episodes</a>
-          <a class="btn pink" href="#rsvp">Lock attendance</a>
+          <a class="btn primary" href="#episodes">View the celebrations</a>
+          <a class="btn pink" href="#rsvp">RSVP</a>
         </div>
       </div>
       <div class="hero-card reveal" aria-label="Dheeraj and Virshita wedding week title card">
@@ -346,9 +348,9 @@ img { max-width:100%; height:auto; }
 
   <section class="section reveal">
     <div class="title-row center">
-      <p class="eyebrow">The trailer</p>
+      <p class="eyebrow">Our story</p>
       <h3>Tap through the story</h3>
-      <p class="subcopy">A small glimpse of the story so far. Tap through the moments, the laughter, the almost-romance, and the people who made it unforgettable.</p>
+      <p class="subcopy">A little glimpse of how it began, told through the moments, the laughter, and the people who were there for it all.</p>
     </div>
     <div class="sequence-wrap">
       <div class="sequence-shell" id="sequenceShell">
@@ -369,23 +371,23 @@ img { max-width:100%; height:auto; }
   <section class="section reveal">
     <div class="title-row">
       <div>
-        <p class="eyebrow">Your assignment</p>
-        <h3>A note for our people</h3>
+        <p class="eyebrow">A small request</p>
+        <h3>For the people we love</h3>
       </div>
-      <p class="subcopy">Come as you are, but come fully present. The next few days are about music, family, food, memories, and being together for a celebration we will always remember.</p>
+      <p class="subcopy">Come with your whole heart. These few days are about family, friendship, blessings, music, food, and the kind of memories that stay with us long after the lights come down.</p>
     </div>
     <div class="mission-grid">
-      <article class="mission-card"><span class="emoji">🕺</span><h4>Dress beautifully</h4><p>Bring your best festive self. These are the photographs we will keep returning to for years.</p></article>
-      <article class="mission-card"><span class="emoji">🔋</span><h4>Stay close</h4><p>Be around for the little moments too, the chai breaks, the late laughs, the photos between events, and the unplanned memories.</p></article>
-      <article class="mission-card"><span class="emoji">📣</span><h4>Bring the joy</h4><p>There will be music, teasing, family commentary, and plenty of food. Your presence is the part we care about most.</p></article>
+      <article class="mission-card"><span class="emoji">🕺</span><h4>Dress with joy</h4><p>Wear something that feels like a celebration. These are the photographs we will return to for years.</p></article>
+      <article class="mission-card"><span class="emoji">🔋</span><h4>Stay for the little moments</h4><p>Stay for the chai breaks, the quiet smiles, the late laughs, the in-between photographs, and the memories no itinerary can plan.</p></article>
+      <article class="mission-card"><span class="emoji">📣</span><h4>Bring your warmth</h4><p>There will be music, food, teasing, and familiar chaos. What will matter most to us is having you there.</p></article>
     </div>
   </section>
 
   <section class="section reveal" id="episodes">
     <div class="title-row center">
       <p class="eyebrow">The celebrations</p>
-      <h3>Wedding week itinerary</h3>
-      <p class="subcopy">Five gatherings, each with its own mood, meaning, and memory. We would love you beside us for all of it.</p>
+      <h3>Wedding week</h3>
+      <p class="subcopy">Five gatherings, each with its own feeling. We would be honoured to have you with us through every part of the week.</p>
     </div>
     <div class="events">
       <article class="event-card pelli-card">
@@ -393,7 +395,7 @@ img { max-width:100%; height:auto; }
         <div class="event-date">Sunday, 23 August 2026</div>
         <div class="event-time">10:15 AM</div>
         <h4>Pelli Koduku</h4>
-        <p>We begin at home with blessings for the groom, family rituals, laughter, and the first warm gathering of the wedding week.</p>
+        <p>We begin at home, with blessings for the groom and the first warm gathering of the wedding week.</p>
         <p class="event-location">Location: Our residence</p>
       </article>
 
@@ -405,12 +407,12 @@ img { max-width:100%; height:auto; }
         <div class="night-copy">
           <div>
             <p class="bigline">From Moonlight to Match Point</p>
-            <p style="margin-top:12px">A night of music, memories, and mischief.</p>
-            <span class="dress-code">Dress beautifully: Gold / Black Shimmer</span>
+            <p style="margin-top:12px">A night of music, memories and mischief.</p>
+            <span class="dress-code">Dress with joy: Gold / Black Shimmer</span>
           </div>
           <div class="night-details">
-            <p>An evening shaped by music, laughter, family, and new beginnings. It brings both families together while quietly honouring the man who showed us that every celebration deserves a song.</p>
-            <p style="margin-top:12px">There will be music, games, dancing, laughter, and a light finger-food dinner. Come in Gold or Black Shimmer, and bring the kind of energy that makes a night memorable.</p>
+            <p>An evening shaped by music, laughter, family and new beginnings, while quietly honouring the man who taught us that every celebration deserves a song.</p>
+            <p style="margin-top:12px">Expect music, games, dancing and laughter, followed by a light finger-food dinner. Come in Gold or Black Shimmer, and bring the kind of energy that turns an evening into a memory.</p>
             <p class="event-location">Location: Radisson Blu Hotel, Sharada Hall, Vizag</p>
           </div>
         </div>
@@ -421,7 +423,7 @@ img { max-width:100%; height:auto; }
         <div class="event-date">Wednesday, 26 August 2026</div>
         <div class="event-time">11:00 AM</div>
         <h4>Haldi</h4>
-        <p>A bright morning of haldi, blessings, laughter, and the kind of joyful mess that only family can create.</p>
+        <p>A bright morning of haldi, blessings and laughter, with the kind of joyful mess only family can create.</p>
         <p class="event-location">Location: Sai Priya Resorts, Vizag</p>
       </article>
 
@@ -430,7 +432,7 @@ img { max-width:100%; height:auto; }
         <div class="event-date">Wednesday, 26 August 2026</div>
         <div class="event-time">7:30 PM</div>
         <h4>Reception</h4>
-        <p>An evening to dress up, meet everyone, take too many photographs, and celebrate before the muhurtham begins.</p>
+        <p>An evening to dress up, greet everyone, take photographs, and celebrate before the muhurtham begins.</p>
         <p class="event-location">Location: Sai Priya Resorts, Vizag</p>
       </article>
 
@@ -439,7 +441,7 @@ img { max-width:100%; height:auto; }
         <div class="event-date">Wednesday, 26 August 2026</div>
         <div class="event-time">10:16 PM</div>
         <h4>Wedding</h4>
-        <p>The sacred muhurtham, the quiet centre of the entire week, where we step into marriage with the blessings of our families and elders.</p>
+        <p>The sacred muhurtham, the heart of the week, where we step into marriage with the blessings of our families and elders.</p>
         <p class="event-location">Location: Sai Priya Resorts, Sai Suraj 1 Hall, Vizag</p>
       </article>
     </div>
@@ -449,8 +451,8 @@ img { max-width:100%; height:auto; }
     <div class="countdown-card">
       <div>
         <p class="eyebrow">Countdown to the muhurtham</p>
-        <h3>Time left to celebrate</h3>
-        <p class="subcopy" style="margin-left:0">Plan your travel, save the dates, choose your outfits, and keep a little room for every unexpected memory.</p>
+        <h3>Time until the muhurtham</h3>
+        <p class="subcopy" style="margin-left:0">Save the dates, plan your travel, choose your outfits, and leave a little room for the memories we cannot plan.</p>
       </div>
       <div class="countdown" aria-label="Countdown to the wedding muhurtham">
         <div class="timebox"><strong id="days">0</strong><span>Days</span></div>
@@ -466,7 +468,7 @@ img { max-width:100%; height:auto; }
       <div class="venue-head">
         <p class="eyebrow">Where to be</p>
         <h3>Venues in Vizag</h3>
-        <p class="subcopy venue-subcopy">The wedding week moves between two venues. Save both locations now so every arrival feels easy, calm, and on time.</p>
+        <p class="subcopy venue-subcopy">The celebrations move between two venues. Save both locations now, so every arrival feels easy and unhurried.</p>
       </div>
 
       <div class="venue-grid" aria-label="Wedding venue details">
@@ -474,7 +476,7 @@ img { max-width:100%; height:auto; }
           <span class="venue-badge">Musical Night</span>
           <h4>Radisson Blu Hotel</h4>
           <p class="venue-location">Sharada Hall, Vizag</p>
-          <p>Musical Night on Monday, 24 August 2026 at 7:30 PM.</p>
+          <p>Musical Night · Monday, 24 August 2026 · 7:30 PM</p>
           <a class="btn light compact" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Radisson+Blu+Hotel+Sharada+Hall+Vizag">Radisson directions</a>
         </article>
 
@@ -482,14 +484,14 @@ img { max-width:100%; height:auto; }
           <span class="venue-badge">Wedding Day</span>
           <h4>Sai Priya Resorts</h4>
           <p class="venue-location">Vizag</p>
-          <p>Haldi at 11:00 AM, Reception at 7:30 PM, and Wedding at 10:16 PM in Sai Suraj 1 Hall.</p>
+          <p>Haldi · 11:00 AM. Reception · 7:30 PM. Wedding · 10:16 PM in Sai Suraj 1 Hall.</p>
           <a class="btn primary compact" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sai+Priya+Resorts+Vizag">Sai Priya directions</a>
         </article>
       </div>
 
       <div class="venue-actions">
         <button class="btn pink" id="calendarLink" type="button">Add all events to calendar</button>
-        <p class="calendar-helper">One calendar file with all five events, ready to add on iPhone, Android, Mac, or desktop.</p>
+        <p class="calendar-helper">One calendar file with all five events, ready for your phone or desktop.</p>
       </div>
 
       <div class="map-blob" aria-hidden="true">📍</div>
@@ -499,22 +501,22 @@ img { max-width:100%; height:auto; }
   <section class="section reveal" id="rsvp">
     <div class="rsvp-panel">
       <p class="eyebrow">RSVP</p>
-      <h3>Are you coming?</h3>
-      <p class="subcopy">We would be so happy to have you with us. Tell us how you are joining the celebration.</p>
+      <h3>Will you be with us?</h3>
+      <p class="subcopy">Your presence would mean a great deal to us. Let us know how you will be joining the celebrations.</p>
       <div class="rsvp-options">
         <div class="rsvp-option">Yes, I will be there</div>
-        <div class="rsvp-option">Yes, and I am ready to celebrate</div>
-        <div class="rsvp-option">Yes, but I may need outfit approval</div>
+        <div class="rsvp-option">Yes, count me in</div>
+        <div class="rsvp-option">Yes, and I may need outfit approval</div>
         <div class="rsvp-option">Yes, and I may get emotional</div>
       </div>
       <a class="btn pink" href="[RSVP_LINK_PLACEHOLDER]">Send my RSVP</a>
-      <p style="margin-top:18px;font-size:.92rem">Your RSVP helps us plan seating, food, photos, and all the small details that make the celebration feel personal.</p>
+      <p style="margin-top:18px;font-size:.92rem">Your RSVP helps us plan the food, seating, photographs, and the small details that make the celebration feel personal.</p>
     </div>
   </section>
 
   <section class="section credits reveal">
-    <h3>See you in Vizag</h3>
-    <p class="subcopy">Come with love, laughter, good shoes, and an open heart. We cannot wait to celebrate with you.</p>
+    <h3>With love, from Vizag</h3>
+    <p class="subcopy">Come with love, laughter, comfortable shoes, and an open heart. We cannot wait to celebrate with you.</p>
     <div><span class="floating-sticker">Family approved</span><span class="floating-sticker">Friends included</span><span class="floating-sticker">Save the dates</span></div>
   </section>
 </main>
@@ -662,7 +664,7 @@ const sequenceConfig = {
   if(!calendarButton) return;
   const events = [
     {title:'Dheeraj & Virshita: Pelli Koduku', start:'20260823T101500', end:'20260823T121500', location:'Our residence', description:'Pelli Koduku ceremony at home with family blessings for the groom.'},
-    {title:'Dheeraj & Virshita: Musical Night', start:'20260824T193000', end:'20260824T223000', location:'Radisson Blu Hotel, Sharada Hall, Vizag', description:'From Moonlight to Match Point. A night of music, memories, mischief, games, dancing, laughter, and light finger-food dinner. Dress beautifully: Gold / Black Shimmer.'},
+    {title:'Dheeraj & Virshita: Musical Night', start:'20260824T193000', end:'20260824T223000', location:'Radisson Blu Hotel, Sharada Hall, Vizag', description:'From Moonlight to Match Point. A night of music, memories, mischief, games, dancing, laughter, and light finger-food dinner. Dress with joy: Gold / Black Shimmer.'},
     {title:'Dheeraj & Virshita: Haldi', start:'20260826T110000', end:'20260826T130000', location:'Sai Priya Resorts, Vizag', description:'Haldi celebration at Sai Priya Resorts.'},
     {title:'Dheeraj & Virshita: Reception', start:'20260826T193000', end:'20260826T220000', location:'Sai Priya Resorts, Vizag', description:'Reception celebration at Sai Priya Resorts.'},
     {title:'Dheeraj & Virshita: Wedding', start:'20260826T221600', end:'20260826T234500', location:'Sai Priya Resorts, Sai Suraj 1 Hall, Vizag', description:'Wedding muhurtham at 10:16 PM in Sai Suraj 1 Hall.'}
